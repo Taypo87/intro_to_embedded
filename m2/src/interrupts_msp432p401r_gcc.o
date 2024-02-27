@@ -1,0 +1,656 @@
+	.cpu arm7tdmi
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
+	.eabi_attribute 24, 1
+	.eabi_attribute 25, 1
+	.eabi_attribute 26, 1
+	.eabi_attribute 30, 6
+	.eabi_attribute 34, 0
+	.eabi_attribute 18, 4
+	.file	"interrupts_msp432p401r_gcc.c"
+	.text
+.Ltext0:
+	.cfi_sections	.debug_frame
+	.section	.text:Reset_Handler,"ax",%progbits
+	.align	2
+	.global	Reset_Handler
+	.arch armv4t
+	.syntax unified
+	.arm
+	.fpu softvfp
+	.type	Reset_Handler, %function
+Reset_Handler:
+.LFB0:
+	.file 1 "interrupts_msp432p401r_gcc.c"
+	.loc 1 69 1
+	.cfi_startproc
+	@ Interrupt Service Routine.
+	@ args = 0, pretend = 0, frame = 8
+	@ frame_needed = 1, uses_anonymous_args = 0
+	sub	lr, lr, #4
+	push	{r0, r1, r2, r3, fp, ip, lr}
+	.cfi_def_cfa_offset 28
+	.cfi_offset 0, -28
+	.cfi_offset 1, -24
+	.cfi_offset 2, -20
+	.cfi_offset 3, -16
+	.cfi_offset 11, -12
+	.cfi_offset 12, -8
+	.cfi_offset 14, -4
+	add	fp, sp, #24
+	.cfi_def_cfa 11, 4
+	sub	sp, sp, #12
+	.loc 1 73 15
+	ldr	r3, .L4
+	str	r3, [fp, #-32]
+	.loc 1 74 20
+	ldr	r3, .L4+4
+	str	r3, [fp, #-36]
+	.loc 1 74 6
+	b	.L2
+.L3:
+	.loc 1 76 34
+	ldr	r2, [fp, #-32]
+	add	r3, r2, #4
+	str	r3, [fp, #-32]
+	.loc 1 76 20
+	ldr	r3, [fp, #-36]
+	add	r1, r3, #4
+	str	r1, [fp, #-36]
+	.loc 1 76 25
+	ldr	r2, [r2]
+	.loc 1 76 23
+	str	r2, [r3]
+.L2:
+	.loc 1 74 6 discriminator 1
+	ldr	r3, [fp, #-36]
+	ldr	r2, .L4+8
+	cmp	r3, r2
+	bcc	.L3
+	.loc 1 80 6
+	.syntax divided
+@ 80 "interrupts_msp432p401r_gcc.c" 1
+	    ldr     r0, =__bss_start__
+    ldr     r1, =__bss_end__
+    mov     r2, #0
+    .thumb_func
+zero_loop:
+    cmp     r0, r1
+    it      lt
+    strlt   r2, [r0], #4
+    blt     zero_loop
+@ 0 "" 2
+	.loc 1 91 3
+	.arm
+	.syntax unified
+	bl	SystemInit
+	.loc 1 94 6
+	bl	main
+	.loc 1 95 1
+	nop
+	sub	sp, fp, #24
+	.cfi_def_cfa 13, 28
+	@ sp needed
+	ldmfd	sp!, {r0, r1, r2, r3, fp, ip, pc}^
+.L5:
+	.align	2
+.L4:
+	.word	__data_load__
+	.word	__data_start__
+	.word	__data_end__
+	.cfi_endproc
+.LFE0:
+	.size	Reset_Handler, .-Reset_Handler
+	.section	.text:NMI_Handler,"ax",%progbits
+	.align	2
+	.global	NMI_Handler
+	.syntax unified
+	.arm
+	.fpu softvfp
+	.type	NMI_Handler, %function
+NMI_Handler:
+.LFB1:
+	.loc 1 102 1
+	.cfi_startproc
+	@ Interrupt Service Routine.
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 1, uses_anonymous_args = 0
+	@ link register save eliminated.
+	str	fp, [sp, #-4]!
+	.cfi_def_cfa_offset 4
+	.cfi_offset 11, -4
+	add	fp, sp, #0
+	.cfi_def_cfa_register 11
+.L7:
+	.loc 1 104 10 discriminator 1
+	b	.L7
+	.cfi_endproc
+.LFE1:
+	.size	NMI_Handler, .-NMI_Handler
+	.section	.text:HardFault_Handler,"ax",%progbits
+	.align	2
+	.global	HardFault_Handler
+	.syntax unified
+	.arm
+	.fpu softvfp
+	.type	HardFault_Handler, %function
+HardFault_Handler:
+.LFB2:
+	.loc 1 115 1
+	.cfi_startproc
+	@ Interrupt Service Routine.
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 1, uses_anonymous_args = 0
+	@ link register save eliminated.
+	str	fp, [sp, #-4]!
+	.cfi_def_cfa_offset 4
+	.cfi_offset 11, -4
+	add	fp, sp, #0
+	.cfi_def_cfa_register 11
+.L9:
+	.loc 1 117 10 discriminator 1
+	b	.L9
+	.cfi_endproc
+.LFE2:
+	.size	HardFault_Handler, .-HardFault_Handler
+	.section	.text:Default_Handler,"ax",%progbits
+	.align	2
+	.global	Default_Handler
+	.syntax unified
+	.arm
+	.fpu softvfp
+	.type	Default_Handler, %function
+Default_Handler:
+.LFB3:
+	.loc 1 124 1
+	.cfi_startproc
+	@ Interrupt Service Routine.
+	@ args = 0, pretend = 0, frame = 0
+	@ frame_needed = 1, uses_anonymous_args = 0
+	@ link register save eliminated.
+	str	fp, [sp, #-4]!
+	.cfi_def_cfa_offset 4
+	.cfi_offset 11, -4
+	add	fp, sp, #0
+	.cfi_def_cfa_register 11
+.L11:
+	.loc 1 126 7 discriminator 1
+	b	.L11
+	.cfi_endproc
+.LFE3:
+	.size	Default_Handler, .-Default_Handler
+	.weak	PORT6_IRQHandler
+	.set	PORT6_IRQHandler,Default_Handler
+	.weak	PORT5_IRQHandler
+	.set	PORT5_IRQHandler,Default_Handler
+	.weak	PORT4_IRQHandler
+	.set	PORT4_IRQHandler,Default_Handler
+	.weak	PORT3_IRQHandler
+	.set	PORT3_IRQHandler,Default_Handler
+	.weak	PORT2_IRQHandler
+	.set	PORT2_IRQHandler,Default_Handler
+	.weak	PORT1_IRQHandler
+	.set	PORT1_IRQHandler,Default_Handler
+	.weak	DMA_INT0_IRQHandler
+	.set	DMA_INT0_IRQHandler,Default_Handler
+	.weak	DMA_INT1_IRQHandler
+	.set	DMA_INT1_IRQHandler,Default_Handler
+	.weak	DMA_INT2_IRQHandler
+	.set	DMA_INT2_IRQHandler,Default_Handler
+	.weak	DMA_INT3_IRQHandler
+	.set	DMA_INT3_IRQHandler,Default_Handler
+	.weak	DMA_ERR_IRQHandler
+	.set	DMA_ERR_IRQHandler,Default_Handler
+	.weak	RTC_C_IRQHandler
+	.set	RTC_C_IRQHandler,Default_Handler
+	.weak	AES256_IRQHandler
+	.set	AES256_IRQHandler,Default_Handler
+	.weak	T32_INTC_IRQHandler
+	.set	T32_INTC_IRQHandler,Default_Handler
+	.weak	T32_INT2_IRQHandler
+	.set	T32_INT2_IRQHandler,Default_Handler
+	.weak	T32_INT1_IRQHandler
+	.set	T32_INT1_IRQHandler,Default_Handler
+	.weak	ADC14_IRQHandler
+	.set	ADC14_IRQHandler,Default_Handler
+	.weak	EUSCIB3_IRQHandler
+	.set	EUSCIB3_IRQHandler,Default_Handler
+	.weak	EUSCIB2_IRQHandler
+	.set	EUSCIB2_IRQHandler,Default_Handler
+	.weak	EUSCIB1_IRQHandler
+	.set	EUSCIB1_IRQHandler,Default_Handler
+	.weak	EUSCIB0_IRQHandler
+	.set	EUSCIB0_IRQHandler,Default_Handler
+	.weak	EUSCIA3_IRQHandler
+	.set	EUSCIA3_IRQHandler,Default_Handler
+	.weak	EUSCIA2_IRQHandler
+	.set	EUSCIA2_IRQHandler,Default_Handler
+	.weak	EUSCIA1_IRQHandler
+	.set	EUSCIA1_IRQHandler,Default_Handler
+	.weak	EUSCIA0_IRQHandler
+	.set	EUSCIA0_IRQHandler,Default_Handler
+	.weak	TA3_N_IRQHandler
+	.set	TA3_N_IRQHandler,Default_Handler
+	.weak	TA3_0_IRQHandler
+	.set	TA3_0_IRQHandler,Default_Handler
+	.weak	TA2_N_IRQHandler
+	.set	TA2_N_IRQHandler,Default_Handler
+	.weak	TA2_0_IRQHandler
+	.set	TA2_0_IRQHandler,Default_Handler
+	.weak	TA1_N_IRQHandler
+	.set	TA1_N_IRQHandler,Default_Handler
+	.weak	TA1_0_IRQHandler
+	.set	TA1_0_IRQHandler,Default_Handler
+	.weak	TA0_N_IRQHandler
+	.set	TA0_N_IRQHandler,Default_Handler
+	.weak	TA0_0_IRQHandler
+	.set	TA0_0_IRQHandler,Default_Handler
+	.weak	COMP_E1_IRQHandler
+	.set	COMP_E1_IRQHandler,Default_Handler
+	.weak	COMP_E0_IRQHandler
+	.set	COMP_E0_IRQHandler,Default_Handler
+	.weak	FLCTL_IRQHandler
+	.set	FLCTL_IRQHandler,Default_Handler
+	.weak	FPU_IRQHandler
+	.set	FPU_IRQHandler,Default_Handler
+	.weak	WDT_A_IRQHandler
+	.set	WDT_A_IRQHandler,Default_Handler
+	.weak	PCM_IRQHandler
+	.set	PCM_IRQHandler,Default_Handler
+	.weak	CS_IRQHandler
+	.set	CS_IRQHandler,Default_Handler
+	.weak	PSS_IRQHandler
+	.set	PSS_IRQHandler,Default_Handler
+	.weak	SysTick_Handler
+	.set	SysTick_Handler,Default_Handler
+	.weak	PendSV_Handler
+	.set	PendSV_Handler,Default_Handler
+	.weak	DebugMon_Handler
+	.set	DebugMon_Handler,Default_Handler
+	.weak	SVC_Handler
+	.set	SVC_Handler,Default_Handler
+	.weak	UsageFault_Handler
+	.set	UsageFault_Handler,Default_Handler
+	.weak	BusFault_Handler
+	.set	BusFault_Handler,Default_Handler
+	.weak	MemManage_Handler
+	.set	MemManage_Handler,Default_Handler
+	.text
+.Letext0:
+	.file 2 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+	.section	.debug_info,"",%progbits
+.Ldebug_info0:
+	.4byte	0x109
+	.2byte	0x4
+	.4byte	.Ldebug_abbrev0
+	.byte	0x4
+	.uleb128 0x1
+	.4byte	.LASF17
+	.byte	0xc
+	.4byte	.LASF18
+	.4byte	.LASF19
+	.4byte	.Ldebug_ranges0+0
+	.4byte	0
+	.4byte	.Ldebug_line0
+	.uleb128 0x2
+	.byte	0x1
+	.byte	0x6
+	.4byte	.LASF0
+	.uleb128 0x2
+	.byte	0x2
+	.byte	0x5
+	.4byte	.LASF1
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x5
+	.4byte	.LASF2
+	.uleb128 0x2
+	.byte	0x8
+	.byte	0x5
+	.4byte	.LASF3
+	.uleb128 0x2
+	.byte	0x1
+	.byte	0x8
+	.4byte	.LASF4
+	.uleb128 0x2
+	.byte	0x2
+	.byte	0x7
+	.4byte	.LASF5
+	.uleb128 0x3
+	.4byte	.LASF20
+	.byte	0x2
+	.byte	0x34
+	.byte	0x19
+	.4byte	0x5b
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x7
+	.4byte	.LASF6
+	.uleb128 0x2
+	.byte	0x8
+	.byte	0x7
+	.4byte	.LASF7
+	.uleb128 0x4
+	.byte	0x4
+	.byte	0x5
+	.ascii	"int\000"
+	.uleb128 0x2
+	.byte	0x4
+	.byte	0x7
+	.4byte	.LASF8
+	.uleb128 0x5
+	.4byte	.LASF9
+	.byte	0x1
+	.byte	0x3b
+	.byte	0x11
+	.4byte	0x4f
+	.uleb128 0x5
+	.4byte	.LASF10
+	.byte	0x1
+	.byte	0x3c
+	.byte	0x11
+	.4byte	0x4f
+	.uleb128 0x5
+	.4byte	.LASF11
+	.byte	0x1
+	.byte	0x3d
+	.byte	0x11
+	.4byte	0x4f
+	.uleb128 0x6
+	.4byte	.LASF12
+	.byte	0x1
+	.byte	0x7b
+	.byte	0x6
+	.4byte	.LFB3
+	.4byte	.LFE3-.LFB3
+	.uleb128 0x1
+	.byte	0x9c
+	.uleb128 0x6
+	.4byte	.LASF13
+	.byte	0x1
+	.byte	0x72
+	.byte	0x6
+	.4byte	.LFB2
+	.4byte	.LFE2-.LFB2
+	.uleb128 0x1
+	.byte	0x9c
+	.uleb128 0x6
+	.4byte	.LASF14
+	.byte	0x1
+	.byte	0x65
+	.byte	0x6
+	.4byte	.LFB1
+	.4byte	.LFE1-.LFB1
+	.uleb128 0x1
+	.byte	0x9c
+	.uleb128 0x7
+	.4byte	.LASF21
+	.byte	0x1
+	.byte	0x44
+	.byte	0x6
+	.4byte	.LFB0
+	.4byte	.LFE0-.LFB0
+	.uleb128 0x1
+	.byte	0x9c
+	.4byte	0x106
+	.uleb128 0x8
+	.4byte	.LASF15
+	.byte	0x1
+	.byte	0x47
+	.byte	0x10
+	.4byte	0x106
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -36
+	.uleb128 0x8
+	.4byte	.LASF16
+	.byte	0x1
+	.byte	0x47
+	.byte	0x1b
+	.4byte	0x106
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.byte	0
+	.uleb128 0x9
+	.byte	0x4
+	.4byte	0x4f
+	.byte	0
+	.section	.debug_abbrev,"",%progbits
+.Ldebug_abbrev0:
+	.uleb128 0x1
+	.uleb128 0x11
+	.byte	0x1
+	.uleb128 0x25
+	.uleb128 0xe
+	.uleb128 0x13
+	.uleb128 0xb
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x1b
+	.uleb128 0xe
+	.uleb128 0x55
+	.uleb128 0x17
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x10
+	.uleb128 0x17
+	.byte	0
+	.byte	0
+	.uleb128 0x2
+	.uleb128 0x24
+	.byte	0
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3e
+	.uleb128 0xb
+	.uleb128 0x3
+	.uleb128 0xe
+	.byte	0
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x16
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x4
+	.uleb128 0x24
+	.byte	0
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3e
+	.uleb128 0xb
+	.uleb128 0x3
+	.uleb128 0x8
+	.byte	0
+	.byte	0
+	.uleb128 0x5
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3c
+	.uleb128 0x19
+	.byte	0
+	.byte	0
+	.uleb128 0x6
+	.uleb128 0x2e
+	.byte	0
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2117
+	.uleb128 0x19
+	.byte	0
+	.byte	0
+	.uleb128 0x7
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x8
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x9
+	.uleb128 0xf
+	.byte	0
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.byte	0
+	.section	.debug_aranges,"",%progbits
+	.4byte	0x34
+	.2byte	0x2
+	.4byte	.Ldebug_info0
+	.byte	0x4
+	.byte	0
+	.2byte	0
+	.2byte	0
+	.4byte	.LFB0
+	.4byte	.LFE0-.LFB0
+	.4byte	.LFB1
+	.4byte	.LFE1-.LFB1
+	.4byte	.LFB2
+	.4byte	.LFE2-.LFB2
+	.4byte	.LFB3
+	.4byte	.LFE3-.LFB3
+	.4byte	0
+	.4byte	0
+	.section	.debug_ranges,"",%progbits
+.Ldebug_ranges0:
+	.4byte	.LFB0
+	.4byte	.LFE0
+	.4byte	.LFB1
+	.4byte	.LFE1
+	.4byte	.LFB2
+	.4byte	.LFE2
+	.4byte	.LFB3
+	.4byte	.LFE3
+	.4byte	0
+	.4byte	0
+	.section	.debug_line,"",%progbits
+.Ldebug_line0:
+	.section	.debug_str,"MS",%progbits,1
+.LASF19:
+	.ascii	"/mnt/c/school_stuff/University_of_Boulder_Colorado/"
+	.ascii	"Embedded_Systems/ese-coursera-course1/assessments/m"
+	.ascii	"2/src\000"
+.LASF21:
+	.ascii	"Reset_Handler\000"
+.LASF9:
+	.ascii	"__data_load__\000"
+.LASF4:
+	.ascii	"unsigned char\000"
+.LASF6:
+	.ascii	"long unsigned int\000"
+.LASF5:
+	.ascii	"short unsigned int\000"
+.LASF17:
+	.ascii	"GNU C99 10.3.1 20210621 (release) -mcpu=arm7tdmi -m"
+	.ascii	"float-abi=soft -marm -march=armv4t -g -O0 -std=c99\000"
+.LASF18:
+	.ascii	"interrupts_msp432p401r_gcc.c\000"
+.LASF8:
+	.ascii	"unsigned int\000"
+.LASF15:
+	.ascii	"pui32Src\000"
+.LASF7:
+	.ascii	"long long unsigned int\000"
+.LASF14:
+	.ascii	"NMI_Handler\000"
+.LASF16:
+	.ascii	"pui32Dest\000"
+.LASF3:
+	.ascii	"long long int\000"
+.LASF13:
+	.ascii	"HardFault_Handler\000"
+.LASF12:
+	.ascii	"Default_Handler\000"
+.LASF1:
+	.ascii	"short int\000"
+.LASF20:
+	.ascii	"uint32_t\000"
+.LASF2:
+	.ascii	"long int\000"
+.LASF0:
+	.ascii	"signed char\000"
+.LASF10:
+	.ascii	"__data_start__\000"
+.LASF11:
+	.ascii	"__data_end__\000"
+	.ident	"GCC: (15:10.3-2021.07-4) 10.3.1 20210621 (release)"
